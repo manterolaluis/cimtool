@@ -88,6 +88,9 @@ end
     %PUNTOS DE LUMEN INTIMA POSTERIOR
     rehacer = true;
     figure(hFig1);
+    set(hFig1, 'MenuBar', 'none');
+    set(hFig1, 'ToolBar', 'none');
+    set(hFig1, 'NumberTitle', 'off');
     while rehacer
         title('Select points over far LI and press Enter');
         hold on;
@@ -112,6 +115,9 @@ end
          
     %Medicion diametro arterial
     figure(hFig1);
+    set(hFig1, 'MenuBar', 'none');
+    set(hFig1, 'ToolBar', 'none');
+    set(hFig1, 'NumberTitle', 'off');
     scriptArterialDiameter;
 %    export_fig(strcat(dirImg,'_segmentacionFANTOMA.png'))
     
