@@ -1,0 +1,13 @@
+set(handles.pushbuttonOK, 'Enable', 'off');
+set(handles.pushbuttonRedo, 'Enable', 'off');
+set(handles.checkboxLIAnterior, 'Enable', 'off');
+set(handles.checkboxLIPosterior, 'Enable', 'off');
+set(handles.checkboxDiamLimits, 'Enable', 'off');
+set(handles.checkboxZoom, 'Enable', 'off');
+set(handles.checkboxLI, 'Enable', 'off');
+set(handles.checkboxMA, 'Enable', 'off');
+set(handles.checkboxLimitsIntima, 'Enable', 'off');
+set(handles.checkboxEdgeIntima, 'Enable', 'off');
+set(handles.pushbuttonExport, 'Enable', 'off');
+set(handles.text8,'String','');
+set(handles.text8,'Max',8);
