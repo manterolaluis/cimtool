@@ -15,6 +15,5 @@ function mascara = functionInterfaceToImg( interface , heightStandard, widthStan
     indexes = sub2ind(size(mascara), Y, X); cantPuntos = size(indexes);
     valores = uint8(ones(cantPuntos(1),1) * 200);
     mascara(indexes) = valores;
-
 end
 

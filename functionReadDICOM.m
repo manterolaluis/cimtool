@@ -10,12 +10,12 @@ try
     if physicalDeltaX > 0
         frames= dicomread(info);
         frames = double(frames)./255;
-        'Lei la imagen DICOM'
+        'DICOM image read'
         parteUtilDeLaImagen = [250 85 450 450];
         mmpx = double(physicalDeltaX).*10;%porque esta en cm/px, lo paso a mm/px
     end
 catch
-    'No es un archivo de imagen DICOM'
+    'Not a DICOM File'
 end
 
 end
