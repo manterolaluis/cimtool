@@ -59,6 +59,9 @@ end
     rehacer = true;
     close all;
     hFig1 = figure('Name','Artery'); imshow(originalUSCrop);
+    set(hFig1, 'MenuBar', 'none');
+    set(hFig1, 'ToolBar', 'none');
+    set(hFig1, 'NumberTitle', 'off');
     title('Select points over near LI and press Enter');
     while rehacer
         tic;
