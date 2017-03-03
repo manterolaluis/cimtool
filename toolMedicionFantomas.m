@@ -62,7 +62,7 @@ end
     set(hFig1, 'MenuBar', 'none');
     set(hFig1, 'ToolBar', 'none');
     set(hFig1, 'NumberTitle', 'off');
-    title('Select points over near LI and press Enter');
+    title('Select points over near interface and then press Enter');
     while rehacer
         tic;
         [xLIAnteriorManual, yLIAnteriorManual] = getpts(hFig1);
@@ -92,7 +92,7 @@ end
     set(hFig1, 'ToolBar', 'none');
     set(hFig1, 'NumberTitle', 'off');
     while rehacer
-        title('Select points over far LI and press Enter');
+        title('Select points over far interface and then press Enter');
         hold on;
         plot(xLIAnterior,yLIAnterior,'r');
         tic;
@@ -151,11 +151,11 @@ end
         };
     
     conSaltoDeLinea = strjoin(strEstadisticas,'\n');
-    
-    hMsg = msgbox(strEstadisticas,'Statistics');
-    set(hMsg, 'position', [200 400 200 300]);
-    pause(1);
-    
+% REMEMBER TO DELETE hMsg IF YOU UNCOMMENT THIS    
+%     hMsg = msgbox(strEstadisticas,'Statistics');
+%     set(hMsg, 'position', [200 400 200 300]);
+%     pause(1);
+%     
     fid=fopen(strcat(dirImg,'_statistics.txt'),'w');
     fprintf(fid, [conSaltoDeLinea]);
     %fprintf(fid, '%f %f \n', [A B]');
@@ -181,7 +181,7 @@ end
         case 'No'
             segmentarStudies = false;
     end
-    delete(hMsg);
+%    delete(hMsg);
 end
 
 clear; close all; clc;
