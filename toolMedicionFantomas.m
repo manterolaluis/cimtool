@@ -151,11 +151,17 @@ end
         };
     
     conSaltoDeLinea = strjoin(strEstadisticas,'\n');
+    
+    imim = getframe(hFig1);
+    imim = imim.cdata;
+    imim = insertText(imim, [100 100], conSaltoDeLinea);
 % REMEMBER TO DELETE hMsg IF YOU UNCOMMENT THIS    
 %     hMsg = msgbox(strEstadisticas,'Statistics');
 %     set(hMsg, 'position', [200 400 200 300]);
 %     pause(1);
 %     
+
+    insertText(hFig1,[100,100],conSaltoDeLinea);
     fid=fopen(strcat(dirImg,'_statistics.txt'),'w');
     fprintf(fid, [conSaltoDeLinea]);
     %fprintf(fid, '%f %f \n', [A B]');
