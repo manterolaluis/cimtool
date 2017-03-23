@@ -142,7 +142,7 @@ end
     strEstadisticas = {strcat('Diametro px Media:',num2str(diametroPxMedia)),...
         strcat('Diametro px Std:',num2str(diametroPxStd)),...
         strcat('Diametro px Median:',num2str(diametroPxMedian))...
-        strcat('Mean Diamter:',num2str(diametroMedia),'mm'),...
+        strcat('Mean Diameter:',num2str(diametroMedia),'mm'),...
         strcat('Stdev Diameter:',num2str(diametroStd)),...
         strcat('Median Diameter:',num2str(diametroMedian),'mm'),...
         strcat('Min Diameter:',num2str(diametroMin)),...
@@ -152,18 +152,21 @@ end
     
     conSaltoDeLinea = strjoin(strEstadisticas,'\n');
     
-    imim = getframe(hFig1);
-    imim = imim.cdata;
-    imim = insertText(imim, [100 100], conSaltoDeLinea);
+    h_leg = legend(conSaltoDeLinea);
+    set(h_leg,'box','off','Location', 'southeast', 'TextColor', 'white');
+
+%     imim = getframe(hFig1);
+%     imim = imim.cdata;
+%     imim = insertText(imim, [100 100], conSaltoDeLinea);
 % REMEMBER TO DELETE hMsg IF YOU UNCOMMENT THIS    
 %     hMsg = msgbox(strEstadisticas,'Statistics');
 %     set(hMsg, 'position', [200 400 200 300]);
 %     pause(1);
 %     
 
-    insertText(hFig1,[100,100],conSaltoDeLinea);
+%     insertText(hFig1,[100,100],conSaltoDeLinea);
     fid=fopen(strcat(dirImg,'_statistics.txt'),'w');
-    fprintf(fid, [conSaltoDeLinea]);
+    fprintf(fid, conSaltoDeLinea);
     %fprintf(fid, '%f %f \n', [A B]');
     fclose(fid);
     
