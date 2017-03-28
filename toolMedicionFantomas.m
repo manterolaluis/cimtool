@@ -139,7 +139,8 @@ end
         yLIPosterior(validoArteria),paredMaskArtery );
     
     
-    strEstadisticas = {strcat('Diametro px Media:',num2str(diametroPxMedia)),...
+    strEstadisticas = {...
+        strcat('Diametro px Media:',num2str(diametroPxMedia)),...
         strcat('Diametro px Std:',num2str(diametroPxStd)),...
         strcat('Diametro px Median:',num2str(diametroPxMedian))...
         strcat('Mean Diameter:',num2str(diametroMedia),'mm'),...
@@ -152,12 +153,18 @@ end
     
     conSaltoDeLinea = strjoin(strEstadisticas,'\n');
     
-    h_leg = legend(conSaltoDeLinea);
-    set(h_leg,'box','off','Location', 'southeast', 'TextColor', 'white');
+    %char(10) is \n, which somehow didn't work for this approach
+    text_to_legend = ...
+        strcat(strcat({'Mean Diameter:'}  ,{' '},{num2str(diametroMedia)} ,{' '},{'mm'},{char(10)}),...
+               strcat({'Stdev Diameter:'} ,{' '},{num2str(diametroStd)}   ,{' '},{'mm'},{char(10)}),...
+               strcat({'Median Diameter:'},{' '},{num2str(diametroMedian)},{' '},{'mm'},{char(10)}),...
+               strcat({'Min Diameter:'}   ,{' '},{num2str(diametroMin)}   ,{' '},{'mm'},{char(10)}),...
+               strcat({'Max Diameter:'}   ,{' '},{num2str(diametroMax)}   ,{' '},{'mm'},{char(10)})...
+              );
+   
+    h_leg = legend(text_to_legend);
+    set(h_leg,'box','off','Location', 'best', 'TextColor', 'white', 'FontWeight', 'bold');
 
-%     imim = getframe(hFig1);
-%     imim = imim.cdata;
-%     imim = insertText(imim, [100 100], conSaltoDeLinea);
 % REMEMBER TO DELETE hMsg IF YOU UNCOMMENT THIS    
 %     hMsg = msgbox(strEstadisticas,'Statistics');
 %     set(hMsg, 'position', [200 400 200 300]);
@@ -165,7 +172,7 @@ end
 %     
 
 %     insertText(hFig1,[100,100],conSaltoDeLinea);
-    fid=fopen(strcat(dirImg,'_statistics.txt'),'w');
+    fid = fopen(strcat(dirImg,'_statistics.txt'),'w');
     fprintf(fid, conSaltoDeLinea);
     %fprintf(fid, '%f %f \n', [A B]');
     fclose(fid);
