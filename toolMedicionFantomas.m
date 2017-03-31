@@ -162,13 +162,8 @@ end
                strcat({'Max Diameter:'}   ,{' '},{num2str(diametroMax)}   ,{' '},{'mm'},{char(10)})...
               );
           
-      %textborder(35, 215, 'Some text') 
-      textborder(0,0.9,text_to_legend,'white','black','Units','normalized', 'FontWeight','bold', 'HorizontalAlignment','Left');
-%     [h_leg,icons,~,~] = legend(text_to_legend);
-%     set(h_leg,'box','off','Location', 'best', 'TextColor', 'white', 'FontWeight', 'bold');
-%     set(icons,'Visible','off');
-%     b = findobj(h_leg,'type','line');
-%     set(b,'visible','off');
+    textborder(0,0.9,text_to_legend,'white','black','Units','normalized', 'FontWeight','bold', 'HorizontalAlignment','Left');
+
 % REMEMBER TO DELETE hMsg IF YOU UNCOMMENT THIS    
 %     hMsg = msgbox(strEstadisticas,'Statistics');
 %     set(hMsg, 'position', [200 400 200 300]);
