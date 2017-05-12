@@ -1,11 +1,11 @@
 
 %Apertura del archivo
-clear all; close all; clc;
+clear; close all; clc;
 currentFolder = pwd;
 %Archivo donde guardo la ultima direccion
 inicFolderFile = strcat(currentFolder,filesep,'luf.wll');
 contentConfigFile = fileread(inicFolderFile);
-contentConfigFile = strsplit(contentConfigFile,'\n')
+contentConfigFile = strsplit(contentConfigFile,'\n');
 inicFolder = contentConfigFile{1};
 oldUser = contentConfigFile{2};
 
@@ -183,7 +183,7 @@ end
         'activeUser','nroFrameSelected','filename','isImage','xDiametroValido',...
         'diametroPxMedia', 'diametroPxMedian', 'diametroPxStd', 'diametroPxMin', 'diametroPxMax',...
         'medicionesDiametro','xDiametroValido','diametroMedia','diametroMedian','diametroStd',...
-        'vectorMediciones');
+        'vectorMediciones','mmpx');
     
     %Iterar en mas estudios
     choice = MFquestdlg([0.3 0.3],'Open another study?', ...

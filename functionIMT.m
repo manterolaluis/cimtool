@@ -1,6 +1,6 @@
 function [imtPxMedia, imtPxMedian, imtPxStd, imtPxMin, imtPxMax, mediciones, imtMedia,...
     imtMedian, imtStd, imtMin, imtMax, medicionesIMTmm] =...
-    functionIMT( xLI,yLI,xMA,yMA,paredMask )
+    functionIMT( xLI,yLI,xMA,yMA,paredMask,mmpx )
 
 %No voy a tomar de las puntas por problemas en las condiciones de contorno
 %de la snake
@@ -68,7 +68,7 @@ medicionesIMT = medicionesIMT(medicionesIMT>0);
 
 %Tengo que poner los parametros correctos
 %scriptUSParameters;
-global mmpx;
+mmpx;
 medicionesIMTmm = medicionesIMT * mmpx;
     
 imtPxMedia = mean(medicionesIMT);
