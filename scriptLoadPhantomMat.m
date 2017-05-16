@@ -42,8 +42,11 @@ hold on;
 p2 = plot([xDiametroValido(2),xDiametroValido(2)],[a,b],'y');
 hold off;
 
+clear a, b;
 %%
 %Mean among
+validoArteria = round(xDiametroValido(1)):1:round(xDiametroValido(2));
+
 interfacePolarAnterior = functionInterfaceToImg( [xLIAnterior',yLIAnterior'] , hRegion, wRegion);
 maskAnterior = functionLabelizarPixelPolar( interfacePolarAnterior );
 
@@ -52,9 +55,9 @@ maskPosterior = functionLabelizarPixelPolar( interfacePolarPosterior );
 paredMaskArtery = xor(maskAnterior,maskPosterior);
 
 %From LI to MA
-[imtPxMedia1, imtPxMedian1, imtPxStd1, imtPxMin1, imtPxMax1, mediciones1, imtMedia1,...
-    imtMedian1, imtStd1, imtMin1, imtMax1, medicionesIMTmm1] =...
-    functionIMT( xLIAnterior,yLIAnterior,xLIPosterior,yLIPosterior,paredMaskArtery, mmpx );
+[imtPxMedia1, ~, ~, ~, ~, mediciones1, imtMedia1,...
+    ~, ~, ~, ~, medicionesIMTmm1] =...
+    functionIMT( xLIAnterior(validoArteria),yLIAnterior(validoArteria),xLIPosterior(validoArteria),yLIPosterior(validoArteria),paredMaskArtery, mmpx );
 
 
 %From MA to LI
@@ -62,18 +65,6 @@ paredMaskArtery2 = flipud(paredMaskArtery);
 yLIPosterior2 = (yLIPosterior - ones(size(yLIPosterior)) * hRegion) .* (-1) + ones(size(yLIPosterior));
 yLIAnterior2 = (yLIAnterior - ones(size(yLIAnterior)) * hRegion) .* (-1) + ones(size(yLIAnterior));
 
-figure('Name','pared original'); imshow(paredMaskArtery);
-hold on;
-plot(xLIAnterior,yLIAnterior,'b');
-plot(xLIPosterior,yLIPosterior,'g');
-hold off;
-
-h2 = figure('Name','pared flipud'); imshow(paredMaskArtery2);
-hold on;
-plot(xLIAnterior,yLIAnterior2,'b');
-plot(xLIPosterior,yLIPosterior2,'g');
-hold off;
-
-[imtPxMedia2, imtPxMedian2, imtPxStd2, imtPxMin2, imtPxMax2, mediciones2, imtMedia2,...
-    imtMedian2, imtStd2, imtMin2, imtMax2, medicionesIMTmm2] =...
-functionIMT(xLIAnterior,yLIPosterior2,xLIPosterior,yLIAnterior2,paredMaskArtery2, mmpx );
+[imtPxMedia2, ~, ~, ~, ~, mediciones2, imtMedia2,...
+    ~, ~, ~, ~, medicionesIMTmm2] =...
+    functionIMT(xLIAnterior(validoArteria),yLIPosterior2(validoArteria),xLIPosterior(validoArteria),yLIAnterior2(validoArteria),paredMaskArtery2, mmpx );

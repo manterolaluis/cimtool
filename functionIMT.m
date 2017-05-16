@@ -68,7 +68,6 @@ medicionesIMT = medicionesIMT(medicionesIMT>0);
 
 %Tengo que poner los parametros correctos
 %scriptUSParameters;
-mmpx;
 medicionesIMTmm = medicionesIMT * mmpx;
     
 imtPxMedia = mean(medicionesIMT);
