@@ -12,7 +12,7 @@ vectorAnteriorDiffPx = zeros(size(vectorTensionCoef));
 vectorPosteriorDiffPx = zeros(size(vectorTensionCoef));
 	
 for i=1:length(vectorTensionCoef)
-    tensionCoef = vectorTensionCoef(i)
+    tensionCoef = vectorTensionCoef(i);
     [XLI1,YLI1,~] =...
         functionSegmentEdge( xLIAnteriorManual, yLIAnteriorManual, originalUSCrop, false, tensionCoef );
     [XLI2,YLI2,~] =...

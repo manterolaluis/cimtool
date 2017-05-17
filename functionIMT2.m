@@ -4,7 +4,6 @@ function [ meanIMT, stdIMT, meanPx, stdPx] = functionIMT2( xLI,yLI,xMA,yMA, vali
 
 [imtPxMedia1, ~, ~, ~, ~, ~, imtMedia1,...
     ~, ~, ~, ~, medicionesIMTmm1] =...
-	
     functionIMT( xLI(validoArteria),yLI(validoArteria),xMA(validoArteria),yMA(validoArteria),paredMask, mmpx );
 
 %Inversion para calcular desde la otra interfaz
