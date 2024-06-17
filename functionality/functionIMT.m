@@ -1,6 +1,6 @@
 function [imtPxMedia, imtPxMedian, imtPxStd, imtPxMin, imtPxMax, mediciones, imtMedia,...
     imtMedian, imtStd, imtMin, imtMax, medicionesIMTmm] =...
-    functionIMT( xLI,yLI,xMA,yMA,paredMask,mmpx )
+    functionIMT( xLI,yLI,xMA,yMA,paredMask)
 
 %No voy a tomar de las puntas por problemas en las condiciones de contorno
 %de la snake
@@ -13,8 +13,6 @@ nLI = length(xLI);
 iLI = zeros(1,length(xLI)-2*ptsADescartar);
 iMACorrespondants = iLI;
 imtsPx = iLI;
-
-%Medicion Tesis Gabiola Claret
 
 n = 10; %distancia para sacar linea recta
 medicionesIMT = zeros(1,length(xLI)-2*ptsADescartar);
@@ -66,8 +64,7 @@ for i=ptsADescartar:nLI-ptsADescartar
 
 medicionesIMT = medicionesIMT(medicionesIMT>0);
 
-%Tengo que poner los parametros correctos
-%scriptUSParameters;
+global mmpx;
 medicionesIMTmm = medicionesIMT * mmpx;
     
 imtPxMedia = mean(medicionesIMT);
