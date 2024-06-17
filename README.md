@@ -19,3 +19,9 @@ Hugo Luis Manterola, Lucas Lo Vercio, Alejandro Díaz, Pamela Alejandra Pardini,
 Damian Craiem et al. "Placas de ateroma: descripción cuantitativa de la ecogenicidad por capas". Revista Española de Cardiología. Vol. 62. No. 9. 2009.
 
 R. Sztajzel et al. "Stratified Gray-Scale Median Analysis and Color Mapping of the Carotid Plaque". Vol. 36. No. 4. Stroke. 2005.
+
+## Usage
+
+To run the tool, execute panelTool.m in MATLAB.
+
+Define a new set of USParameters if needed in scriptUSParameters.m, particularly for the appropiate mmpx (physical size in milimiters of the side of a square pixel).
